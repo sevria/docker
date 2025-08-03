@@ -11,7 +11,7 @@ We use Docker Compose to orchestrate the following services:
 * postgres – PostgreSQL database
 * adminer – Web UI database manager
 
-## Getting Started
+## Getting started
 
 1. Make sure Docker and Docker Compose are installed on your machine.
    You can verify this by running:
@@ -44,7 +44,7 @@ Feel free to modify the `compose.yml` file to fit your environment. You can:
 * Mount local volumes for development
 * Add environment variables (e.g., database credentials, secrets)
 
-## Stopping the Services
+## Stopping the services
 
 To stop and remove the containers:
 
