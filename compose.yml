@@ -1,0 +1,48 @@
+services:
+  api:
+    container_name: sevria-api
+    image: ghcr.io/sevria/api:main
+    restart: unless-stopped
+    networks:
+      - main
+    ports:
+      - 127.0.0.1:4000:4000
+    environment:
+      CORS_ORIGIN: "http://localhost:3000"
+      DATABASE_URL: "postgres://postgres:Sevria123@postgres/sevria"
+      DEFAULT_ADMIN_EMAIL: "admin@example.com"
+      DEFAULT_ADMIN_PASSWORD: "Sevria123"
+      JWT_SECRET: "secret"
+
+  app:
+    container_name: sevria-app
+    image: ghcr.io/sevria/app:main
+    restart: unless-stopped
+    networks:
+      - main
+    ports:
+      - 127.0.0.1:3000:3000
+    environment:
+      PUBLIC_API_URL: "http://localhost:4000"
+
+  postgres:
+    container_name: sevria-postgres
+    image: postgres:17.5-alpine
+    restart: unless-stopped
+    networks:
+      - main
+    environment:
+      POSTGRES_DB: "sevria"
+      POSTGRES_PASSWORD: "Sevria123"
+
+  adminer:
+    container_name: sevria-adminer
+    image: adminer:5.3.0
+    restart: unless-stopped
+    networks:
+      - main
+    ports:
+      - 127.0.0.1:8080:8080
+
+networks:
+  main:
