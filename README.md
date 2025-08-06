@@ -49,5 +49,5 @@ Feel free to modify the `compose.yml` file to fit your environment. You can:
 To stop and remove the containers:
 
 ```bash
-docker compose down
+docker compose down -v
 ```
