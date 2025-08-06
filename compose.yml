@@ -8,7 +8,7 @@ services:
     ports:
       - 127.0.0.1:4000:4000
     environment:
-      CORS_ORIGIN: "http://localhost:3000"
+      CORS_ORIGIN: "http://localhost:3000,http://localhost:5173"
       DATABASE_URL: "postgres://postgres:Sevria123@postgres/sevria"
       DEFAULT_ADMIN_EMAIL: "admin@example.com"
       DEFAULT_ADMIN_PASSWORD: "Sevria123"
@@ -31,6 +31,8 @@ services:
     restart: unless-stopped
     networks:
       - main
+    ports:
+      - 127.0.0.1:5432:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
